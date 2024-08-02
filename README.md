@@ -3,14 +3,16 @@ Platformer esc type of game made in Godot for learning purposes.
 
 # Planned features
 - [ ] expand the level
-- [ ] add effects (animations,particles,music)
+- [ ] add health system 
+- [x] add death animation
+- [ ] add effects (particles,music)
 - [ ] more danger (spikes,traps,etc)
 - [ ] add menu
 - [ ] add enemies
 - [ ] add wepon
 - [ ] add power ups (maybe?)
 - [ ] more levels :D
-- [ ] add cayotee time & double jumps
+- [x] add cayotee time & double jumps
 
 # Why Godot?
 Why not Godot?

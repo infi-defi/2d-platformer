@@ -2,17 +2,18 @@
 Platformer esc type of game made in Godot for learning purposes.
 
 # Planned features
-- [ ] expand the level
-- [ ] add health system 
 - [x] add death animation
-- [ ] add effects (particles,music)
-- [ ] more danger (spikes,traps,etc)
-- [ ] add menu
-- [ ] add enemies
-- [ ] add wepon
-- [ ] add power ups (maybe?)
-- [ ] more levels :D
 - [x] add cayotee time & double jumps
+- [x] remake animation & movement system
+- [ ] add sword
+- [ ] add health system 
+- [ ] more danger (spikes,traps,etc)
+- [ ] add enemies
+- [ ] add menu
+- [ ] expand the level
+- [ ] more levels :D
+- [ ] add effects (particles,music)
+- [ ] add power ups (maybe?)
 
 # Why Godot?
 Why not Godot?
@@ -21,5 +22,5 @@ Why not Godot?
 Get [distracted](https://online-go.com/) idiot.
 
 # Είναι μάγισσα;
-[`ΕΙΝΑΙ ΜΑΓΙΣΣΑ!`](https://www.youtube.com/watch?v=05ea7ASEIkE).
+[`ΕΙΝΑΙ ΜΑΓΙΣΣΑ!`](https://www.youtube.com/watch?v=05ea7ASEIkE)
 

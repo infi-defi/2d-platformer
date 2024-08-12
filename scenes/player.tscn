@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://cmhux5uhvfbm4"]
+[gd_scene load_steps=36 format=3 uid="uid://cmhux5uhvfbm4"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_sawhh"]
 [ext_resource type="Texture2D" uid="uid://i3d5icmugre" path="res://assets/sprites/knight.png" id="1_twc6m"]
@@ -232,6 +232,17 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_vo4pf"]
 radius = 5.09902
 
+[sub_resource type="GDScript" id="GDScript_5u7gm"]
+script/source = "extends Area2D
+
+func _on_body_entered(body):
+	if body.has_method(\"die\") && Input.is_action_pressed(\"attack\"):  # Adjust to your specific names
+		body.die()
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mv7ea"]
+size = Vector2(22, 10)
+
 [node name="player" type="CharacterBody2D"]
 z_index = 5
 collision_layer = 2
@@ -240,7 +251,7 @@ script = ExtResource("1_sawhh")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_x1xlw")
-animation = &"idle"
+animation = &"death"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5)
@@ -249,3 +260,15 @@ shape = SubResource("CircleShape2D_vo4pf")
 [node name="cayoteTimer" type="Timer" parent="."]
 wait_time = 0.15
 one_shot = true
+
+[node name="sword" type="Area2D" parent="."]
+script = SubResource("GDScript_5u7gm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sword"]
+position = Vector2(16, -5)
+shape = SubResource("RectangleShape2D_mv7ea")
+
+[node name="Cooldown" type="Timer" parent="sword"]
+wait_time = 0.25
+
+[connection signal="timeout" from="sword/Cooldown" to="." method="_on_cooldown_timeout"]

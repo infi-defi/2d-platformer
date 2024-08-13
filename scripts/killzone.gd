@@ -5,10 +5,16 @@ extends Area2D
 
 func _on_body_entered(body):
 	if body.has_method("die") && !body.dead:
-		print("You died")
 		body.die()
-		Engine.time_scale = 0.5
-		timer.start()
+		print("hurt")
+		if body.health == 0 || body.position.y > 149:
+			print("you died")
+			body.die()
+			Engine.time_scale = 0.5
+			timer.start()
+		else:
+			body.dead = false
+
 
 func _on_timer_timeout():
 	Engine.time_scale = 1

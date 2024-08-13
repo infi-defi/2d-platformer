@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c8hmccnq25asm" path="res://assets/sprites/world_tileset.png" id="2_xwj7g"]
 [ext_resource type="PackedScene" uid="uid://cd3yxew0f2jm3" path="res://scenes/coin.tscn" id="4_2ay6v"]
 [ext_resource type="PackedScene" uid="uid://6vjmimc7i356" path="res://scenes/killzone.tscn" id="5_mkcj2"]
-[ext_resource type="PackedScene" uid="uid://cwtlh8a4oucvp" path="res://scenes/slime_2.tscn" id="7_2bdib"]
+[ext_resource type="PackedScene" uid="uid://cwtlh8a4oucvp" path="res://scenes/slime.tscn" id="7_2bdib"]
 [ext_resource type="FontFile" uid="uid://ba5p3i381qvj1" path="res://assets/fonts/PixelOperator8.ttf" id="7_sad4y"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="8_5qrbf"]
 [ext_resource type="FontFile" uid="uid://bf14igco0n4up" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="9_aq2rb"]

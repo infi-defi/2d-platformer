@@ -1,7 +1,8 @@
-[gd_scene load_steps=36 format=3 uid="uid://cmhux5uhvfbm4"]
+[gd_scene load_steps=37 format=3 uid="uid://cmhux5uhvfbm4"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_sawhh"]
 [ext_resource type="Texture2D" uid="uid://i3d5icmugre" path="res://assets/sprites/knight.png" id="1_twc6m"]
+[ext_resource type="FontFile" uid="uid://ba5p3i381qvj1" path="res://assets/fonts/PixelOperator8.ttf" id="3_l08k4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4w5rm"]
 atlas = ExtResource("1_twc6m")
@@ -273,5 +274,13 @@ shape = SubResource("RectangleShape2D_mv7ea")
 
 [node name="Cooldown" type="Timer" parent="sword"]
 wait_time = 0.25
+
+[node name="Label" type="Label" parent="."]
+offset_left = -7.0
+offset_top = -36.0
+offset_right = 7.0
+offset_bottom = -20.0
+theme_override_fonts/font = ExtResource("3_l08k4")
+text = "x"
 
 [connection signal="timeout" from="sword/Cooldown" to="." method="_on_cooldown_timeout"]

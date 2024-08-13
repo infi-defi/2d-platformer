@@ -583,6 +583,12 @@ shape = SubResource("WorldBoundaryShape2D_tqeii")
 [node name="slime3" parent="slime" instance=ExtResource("7_2bdib")]
 position = Vector2(869, 35)
 
+[node name="slime2" parent="slime" instance=ExtResource("7_2bdib")]
+position = Vector2(36, 24)
+
+[node name="slime4" parent="slime" instance=ExtResource("7_2bdib")]
+position = Vector2(-88, 29)
+
 [node name="text" type="Node" parent="."]
 
 [node name="Label" type="Label" parent="text"]
@@ -612,9 +618,3 @@ it! You have collected
 x / 13 coins"
 horizontal_alignment = 1
 autowrap_mode = 2
-
-[node name="slime2" parent="." instance=ExtResource("7_2bdib")]
-position = Vector2(36, 24)
-
-[node name="slime3" parent="." instance=ExtResource("7_2bdib")]
-position = Vector2(-88, 29)

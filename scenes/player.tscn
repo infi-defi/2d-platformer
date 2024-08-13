@@ -3,6 +3,10 @@
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_sawhh"]
 [ext_resource type="Texture2D" uid="uid://i3d5icmugre" path="res://assets/sprites/knight.png" id="1_twc6m"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_4w5rm"]
+atlas = ExtResource("1_twc6m")
+region = Rect2(192, 0, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_ofab5"]
 atlas = ExtResource("1_twc6m")
 region = Rect2(0, 224, 32, 32)
@@ -122,6 +126,14 @@ region = Rect2(224, 96, 32, 32)
 [sub_resource type="SpriteFrames" id="SpriteFrames_x1xlw"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4w5rm")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
 "duration": 1.8,
 "texture": SubResource("AtlasTexture_ofab5")
 }, {
@@ -232,16 +244,8 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_vo4pf"]
 radius = 5.09902
 
-[sub_resource type="GDScript" id="GDScript_5u7gm"]
-script/source = "extends Area2D
-
-func _on_body_entered(body):
-	if body.has_method(\"die\") && Input.is_action_pressed(\"attack\"):  # Adjust to your specific names
-		body.die()
-"
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mv7ea"]
-size = Vector2(22, 10)
+size = Vector2(11, 7)
 
 [node name="player" type="CharacterBody2D"]
 z_index = 5
@@ -251,7 +255,7 @@ script = ExtResource("1_sawhh")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_x1xlw")
-animation = &"death"
+animation = &"attack"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5)
@@ -262,10 +266,9 @@ wait_time = 0.15
 one_shot = true
 
 [node name="sword" type="Area2D" parent="."]
-script = SubResource("GDScript_5u7gm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="sword"]
-position = Vector2(16, -5)
+position = Vector2(10, -4)
 shape = SubResource("RectangleShape2D_mv7ea")
 
 [node name="Cooldown" type="Timer" parent="sword"]

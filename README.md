@@ -5,7 +5,7 @@ Platformer esc type of game made in Godot for learning purposes.
 - [x] add death animation
 - [x] add cayotee time & double jumps
 - [x] remake animation & movement system
-- [ ] add sword
+- [x] add sword
 - [ ] add health system 
 - [ ] more danger (spikes,traps,etc)
 - [ ] add enemies

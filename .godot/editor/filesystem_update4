@@ -1,11 +1,11 @@
-res://scenes/game.tscn
 res://scenes/player.tscn
+res://scripts/player.gd
+res://scenes/game.tscn
 res://scenes/platform.tscn
 res://scenes/coin.tscn
 res://scenes/killzone.tscn
 res://scenes/slime.tscn
-res://scripts/player.gd
 res://scenes/slime_2.tscn
-res://scripts/slime_2.gd
-res://scripts/sword.gd
+res://scripts/coin.gd
 res://scripts/game_manager.gd
+res://scripts/slime_2.gd

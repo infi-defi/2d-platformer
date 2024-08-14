@@ -4,13 +4,14 @@ extends CharacterBody2D
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var cooldown_timer = $sword/Cooldown
 @onready var sword_collision_shape = $sword/CollisionShape2D
-@onready var label = $Label
+@onready var health_bar = $healthBar
 
 const DEFAULT_SPEED = 130.0
 const JUMP_VELOCITY = -250.0
 const EXTRA_JUMPS = 1
+const MAX_HEALTH = 3
 
-var health = 3
+var health = MAX_HEALTH
 var attacking = false
 var dead = false
 var speed = DEFAULT_SPEED
@@ -18,16 +19,18 @@ var jumps = EXTRA_JUMPS
 var last_direction = 1
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+func _ready():
+	health_bar.init_health(health)
+
 func _physics_process(delta):
 	if !is_on_floor():
 		velocity.y += gravity * delta
 	
-	
 	handle_movement_and_jump()
 	handle_animation()
 	handle_attack()
+	die()
 	handle_move_and_slide()
-	health_count()
 	handle_dev_tools()
 	
 
@@ -68,12 +71,18 @@ func _on_cooldown_timeout():
 	attacking = false
 
 func die():
-	dead = true
-	if health == 0:
+	if health <= 0:
+		dead = true
 		speed = 0
 		velocity.x = 0
-	else:
-		health -= 1
+
+func damage(amount):
+	health -= amount
+	health_bar.health = health
+
+func heal(amount):
+	health += amount
+	health_bar.health = health
 
 func handle_move_and_slide():
 	var was_on_floor = is_on_floor()
@@ -82,9 +91,11 @@ func handle_move_and_slide():
 	if was_on_floor && !is_on_floor():
 		cayote_timer.start()
 
-func health_count():
-	label.text = str(health)
-
 func handle_dev_tools():
 	if Input.is_action_just_pressed("reset"):
+		print("reload")
+		Engine.time_scale = 1
 		get_tree().reload_current_scene()
+	if Input.is_action_just_pressed("heal"):
+		health = MAX_HEALTH
+		health_bar.health = health

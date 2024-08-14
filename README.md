@@ -6,11 +6,12 @@ Platformer esc type of game made in Godot for learning purposes.
 - [x] add cayotee time & double jumps
 - [x] remake animation & movement system
 - [x] add sword
-- [ ] add health system 
+- [x] add health system 
 - [ ] more danger (spikes,traps,etc)
-- [ ] add enemies
+- [ ] add ranged wepon
+- [ ] add more enemies
+- [ ] add dialogue system
 - [ ] add menu
-- [ ] expand the level
 - [ ] more levels :D
 - [ ] add effects (particles,music)
 - [ ] add power ups (maybe?)
@@ -18,7 +19,7 @@ Platformer esc type of game made in Godot for learning purposes.
 # Why Godot?
 Why not Godot?
 
-# Dude all my homies write in C
+# Dude all my homies write in C.
 Get [distracted](https://online-go.com/) idiot.
 
 # Είναι μάγισσα;

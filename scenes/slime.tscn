@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/slime.gd" id="1_5t4if"]
 [ext_resource type="Texture2D" uid="uid://b246guuf3r6r" path="res://assets/sprites/slime_purple.png" id="1_kdo22"]
 [ext_resource type="PackedScene" uid="uid://6vjmimc7i356" path="res://scenes/killzone.tscn" id="2_t2g4y"]
-[ext_resource type="FontFile" uid="uid://ba5p3i381qvj1" path="res://assets/fonts/PixelOperator8.ttf" id="4_d5kiu"]
+[ext_resource type="PackedScene" uid="uid://c0esxe62k56x8" path="res://scenes/healthbar.tscn" id="4_ejmka"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_860ng"]
 atlas = ExtResource("1_kdo22")
@@ -114,7 +114,7 @@ animations = [{
 size = Vector2(8, 14)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kr1h6"]
-size = Vector2(14, 16)
+size = Vector2(14, 15)
 
 [node name="slime2" type="CharacterBody2D"]
 script = ExtResource("1_5t4if")
@@ -132,8 +132,7 @@ shape = SubResource("RectangleShape2D_inngn")
 [node name="killzone" parent="." instance=ExtResource("2_t2g4y")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
-visible = false
-position = Vector2(0, -8)
+position = Vector2(0, -7.5)
 shape = SubResource("RectangleShape2D_kr1h6")
 
 [node name="Raycast right" type="RayCast2D" parent="."]
@@ -147,12 +146,10 @@ target_position = Vector2(-8, 0)
 [node name="timer" type="Timer" parent="."]
 wait_time = 0.5
 
-[node name="Label" type="Label" parent="."]
-offset_left = -7.0
-offset_top = -29.0
-offset_right = 7.0
-offset_bottom = -13.0
-theme_override_fonts/font = ExtResource("4_d5kiu")
-text = "x"
+[node name="healthBar" parent="." instance=ExtResource("4_ejmka")]
+offset_left = -9.0
+offset_top = -19.0
+offset_right = 9.0
+offset_bottom = -16.0
 
 [connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]

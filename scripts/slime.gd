@@ -5,10 +5,9 @@ extends CharacterBody2D
 @onready var raycast_left = $"Raycast left"
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var timer = $timer
-@onready var label = $Label
+@onready var health_bar = $healthBar
 
 const SPEED = 60
-const DAMAGE_TIME = 1.0  # Duration of the damaged state in seconds
 
 # Variables
 var damaged = false
@@ -16,13 +15,15 @@ var health = 2
 var direction = 1
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+func _ready():
+	health_bar.init_health(health)
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	apply_gravity(delta)
 	check_wall_collisions()
 	update_movement()
 	move_and_slide()
-	label.text = str(health)
 	
 
 # Applies gravity to the velocity.
@@ -51,6 +52,7 @@ func damage():
 	if not damaged:  # Prevent multiple damage processing.
 		damaged = true
 		health -= 1
+		health_bar.health = health
 		play_damage_animation()
 		timer.start()
 

@@ -10,10 +10,14 @@ func _on_body_entered(body):
 
 func calculate_damage(body):
 	match get_grandparent_name():
+	# this is the name of the group node in the level scene. The blank white one :/
 		"slime":
 			body.damage(1)
+		"spike":
+			body.damage(0.5)
 		"root":
 			kill(body)
+
 
 func kill(body):
 	print("you died")

@@ -63,6 +63,7 @@ func handle_attack():
 	if Input.is_action_just_pressed("attack") && !dead && !attacking:
 		attacking = true
 		for area in $sword.get_overlapping_areas():
+			print(get_parent().name)
 			if area.get_parent().has_method("damage"):
 				area.get_parent().damage()
 		cooldown_timer.start()

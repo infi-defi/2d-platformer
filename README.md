@@ -7,14 +7,13 @@ Platformer esc type of game made in Godot for learning purposes.
 - [x] remake animation & movement system
 - [x] add sword
 - [x] add health system 
-- [ ] more danger (spikes,traps,etc)
+- [x] add spikes
 - [ ] add ranged wepon
-- [ ] add more enemies
+- [ ] add ranged enemy
 - [ ] add dialogue system
 - [ ] add menu
 - [ ] more levels :D
-- [ ] add effects (particles,music)
-- [ ] add power ups (maybe?)
+- [ ] save system
 
 # Why Godot?
 Why not Godot?

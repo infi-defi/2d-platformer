@@ -13,6 +13,8 @@ func calculate_damage(body):
 	# this is the name of the group node in the level scene. The blank white one :/
 		"slime":
 			body.damage(1)
+		"goblin":
+			body.damage(1)
 		"spike":
 			body.damage(0.5)
 		"root":
@@ -22,12 +24,6 @@ func calculate_damage(body):
 func kill(body):
 	print("you died")
 	body.die()
-	Engine.time_scale = 0.5
-	timer.start()
-
-func _on_timer_timeout():
-	Engine.time_scale = 1
-	get_tree().reload_current_scene()
 
 func get_grandparent_name() -> String:
 	return get_parent().get_parent().name

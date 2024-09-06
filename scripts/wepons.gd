@@ -14,7 +14,8 @@ func _ready():
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
+	# Wont go to idle because of "action_state = 0" at the end of their repsective attack functions. Not removing in case I change my mind
 	match action_state:
 		0:
 			# Both idle
@@ -34,7 +35,7 @@ func _process(delta):
 	# Sync position/rotation of weapons with player
 	bow.global_position = global_position
 	bow.global_rotation = global_rotation
-	sword_collision_shape.position.x = 22 if deg_to_rad(global_rotation) > -1 else -22
+	sword_collision_shape.position.x = 20 if deg_to_rad(global_rotation) > -1 else -20
 	if !attacking:
 		sword_sprite.global_rotation = 0
 		sword_sprite.global_position = global_position
@@ -53,6 +54,7 @@ func shoot():
 	var arrow_instance = arrow.instantiate()
 	arrow_instance.rotation = global_rotation
 	arrow_instance.global_position = global_position
+	arrow_instance.global_position.x += 5 if position.x > 0 else -5
 	add_child(arrow_instance)
 
 	attacking = false

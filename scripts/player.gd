@@ -96,13 +96,17 @@ func die():
 		dead = true
 		speed = 0
 		velocity.x = 0
+		Engine.time_scale = 0.5
+		await get_tree().create_timer(1.1).timeout
+		Engine.time_scale = 1
+		get_tree().reload_current_scene()
 
 func damage(amount):
 	health -= amount
 	health_bar.health = health
 
 func heal(amount):
-	health = min(health + amount, MAX_HEALTH)
+	health += amount
 	health_bar.health = health
 
 func handle_move_and_slide():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cr102txdg8hvt"]
+[gd_scene load_steps=21 format=3 uid="uid://cr102txdg8hvt"]
 
 [ext_resource type="PackedScene" uid="uid://cmhux5uhvfbm4" path="res://scenes/player.tscn" id="1_24cd3"]
 [ext_resource type="PackedScene" uid="uid://dovejb5kggdi0" path="res://scenes/platform.tscn" id="2_682m0"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="8_5qrbf"]
 [ext_resource type="FontFile" uid="uid://bf14igco0n4up" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="9_aq2rb"]
 [ext_resource type="PackedScene" uid="uid://djlbghq0wmkeo" path="res://scenes/spike.tscn" id="10_x8yqd"]
+[ext_resource type="PackedScene" uid="uid://mfjeawkuervl" path="res://scenes/goblin.tscn" id="11_p08jd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_03m6u"]
 texture = ExtResource("2_xwj7g")
@@ -630,3 +631,8 @@ it! You have collected
 x / 13 coins"
 horizontal_alignment = 1
 autowrap_mode = 2
+
+[node name="goblin" type="Node" parent="."]
+
+[node name="goblin" parent="goblin" instance=ExtResource("11_p08jd")]
+position = Vector2(531, 16)

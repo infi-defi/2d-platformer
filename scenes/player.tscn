@@ -350,7 +350,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mv7ea"]
-size = Vector2(22, 8)
+size = Vector2(26, 8)
 
 [node name="player" type="CharacterBody2D"]
 z_index = 5
@@ -377,10 +377,10 @@ limit_bottom = 145
 limit_smoothed = true
 
 [node name="healthBar" parent="." instance=ExtResource("4_7ngx2")]
-offset_left = -7.0
-offset_top = -25.0
-offset_right = 7.0
-offset_bottom = -22.0
+offset_left = -11.0
+offset_top = -24.0
+offset_right = 10.0
+offset_bottom = -21.0
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(10, -7)
@@ -402,5 +402,5 @@ frame = 3
 frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Marker2D/sword"]
-position = Vector2(22, -7)
+position = Vector2(20, -7)
 shape = SubResource("RectangleShape2D_mv7ea")

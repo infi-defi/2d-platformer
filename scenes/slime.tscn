@@ -147,9 +147,9 @@ target_position = Vector2(-8, 0)
 wait_time = 0.5
 
 [node name="healthBar" parent="." instance=ExtResource("4_ejmka")]
-offset_left = -9.0
-offset_top = -19.0
+offset_left = -8.0
+offset_top = -18.0
 offset_right = 9.0
-offset_bottom = -16.0
+offset_bottom = -15.0
 
 [connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]

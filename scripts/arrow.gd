@@ -14,6 +14,6 @@ func _on_visible_on_screen_enabler_2d_screen_exited():
 
 
 func _on_body_entered(body):
-	if body.has_method("damage"):
+	if body.has_method("damage") && !body.dead:
 		body.damage(1)
 	queue_free()

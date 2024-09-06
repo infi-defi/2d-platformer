@@ -7,6 +7,8 @@
 size = Vector2(14, 6)
 
 [node name="arrow" type="Area2D"]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_ic150")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

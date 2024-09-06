@@ -9,7 +9,7 @@ Platformer esc type of game made in Godot for learning purposes.
 - [x] add health system 
 - [x] add spikes
 - [x] add ranged wepon
-- [ ] add ranged enemy
+- [x] add ranged enemy
 - [ ] add dialogue system
 - [ ] add menu
 - [ ] more levels :D

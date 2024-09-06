@@ -48,10 +48,10 @@ func update_movement():
 		velocity.x = direction * SPEED
 
 # Handles character damage.
-func damage():
+func damage(amount):
 	if not damaged:  # Prevent multiple damage processing.
 		damaged = true
-		health -= 1
+		health -= amount
 		health_bar.health = health
 		play_damage_animation()
 		timer.start()

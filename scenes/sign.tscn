@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbi8bgeans4ol"]
+
+[ext_resource type="Script" path="res://scripts/sign.gd" id="1_gxrpn"]
+[ext_resource type="Texture2D" uid="uid://b1hyg506bvvug" path="res://assets/sprites/cave-platformer-tileset-16x16.png" id="2_av1ya"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5atai"]
+size = Vector2(20, 17)
+
+[node name="Area2D" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_gxrpn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+texture = ExtResource("2_av1ya")
+hframes = 8
+vframes = 11
+frame = 75
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8.5)
+shape = SubResource("RectangleShape2D_5atai")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

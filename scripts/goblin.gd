@@ -7,6 +7,7 @@ extends CharacterBody2D
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var marker = $Marker2D
 @onready var health_bar = $healthBar
+@onready var killzone: Area2D = $killzone
 
 const SPEED = 75
 
@@ -23,7 +24,6 @@ func _ready():
 	health_bar.init_health(health)
 
 func _physics_process(delta):
-	print(health)
 	apply_gravity(delta)
 	update_movement(delta)
 	attack()
@@ -147,6 +147,7 @@ func damage(amount):
 		await get_tree().create_timer(0.5).timeout
 		if health <= 0:
 			dead = true
+			killzone.queue_free()
 			change_animation("death")
 			await get_tree().create_timer(1).timeout
 			queue_free()

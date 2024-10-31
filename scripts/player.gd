@@ -17,9 +17,14 @@ var dead = false
 var speed = DEFAULT_SPEED
 var jumps = EXTRA_JUMPS
 var last_direction = 1
+var on_sign = false
 
 # Bow vars
 var bow_equiped = true
+
+func player():
+	#yes im too bored to do classes deal with it<3
+	pass
 
 func _ready():
 	health_bar.init_health(health)
@@ -32,7 +37,8 @@ func _physics_process(delta):
 	handle_animation()
 	handle_attack()
 	handle_move_and_slide()
-	die()
+	if health <= 0 and !dead:
+		die()
 	handle_dev_tools()
 
 func handle_movement_and_jump():
@@ -43,7 +49,7 @@ func handle_movement_and_jump():
 	velocity.x = direction * speed
 
 	# Handle jump logic
-	if Input.is_action_just_pressed("jump") and !dead:
+	if Input.is_action_just_pressed("jump") and !dead and !on_sign:
 		if is_on_floor() or !cayote_timer.is_stopped(): # Coyote jump allowed
 			velocity.y = JUMP_VELOCITY
 			cayote_timer.stop()  # Disable coyote jump once used
@@ -92,14 +98,13 @@ func handle_attack():
 		marker.lastUsed(2)
 
 func die():
-	if health <= 0 and !dead:
-		dead = true
-		speed = 0
-		velocity.x = 0
-		Engine.time_scale = 0.5
-		await get_tree().create_timer(1.1).timeout
-		Engine.time_scale = 1
-		get_tree().reload_current_scene()
+	dead = true
+	speed = 0
+	velocity.x = 0
+	Engine.time_scale = 0.5
+	await get_tree().create_timer(1.1).timeout
+	Engine.time_scale = 1
+	get_tree().reload_current_scene()
 
 func damage(amount):
 	health -= amount

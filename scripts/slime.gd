@@ -6,10 +6,12 @@ extends CharacterBody2D
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var timer = $timer
 @onready var health_bar = $healthBar
+@onready var killzone: Area2D = $killzone
 
 const SPEED = 60
 
 # Variables
+var dead = false
 var damaged = false
 var health = 2
 var direction = 1
@@ -49,18 +51,24 @@ func update_movement():
 
 # Handles character damage.
 func damage(amount):
+	if dead:
+		return
 	if not damaged:  # Prevent multiple damage processing.
 		damaged = true
 		health -= amount
+		if health < 0:
+			dead = true
 		health_bar.health = health
 		play_damage_animation()
 		timer.start()
+		
 
 # Plays the appropriate animation based on health.
 func play_damage_animation():
 	if health > 0:
 		animated_sprite.play("hurt")
 	else:
+		killzone.queue_free()
 		animated_sprite.play("death")
 
 # Called when the timer times out.

@@ -18,6 +18,7 @@ var speed = DEFAULT_SPEED
 var jumps = EXTRA_JUMPS
 var last_direction = 1
 var on_sign = false
+var pause = false
 
 # Bow vars
 var bow_equiped = true
@@ -37,11 +38,13 @@ func _physics_process(delta):
 	handle_animation()
 	handle_attack()
 	handle_move_and_slide()
-	if health <= 0 and !dead:
+	if health <= 0 and !dead and !pause:
 		die()
 	handle_dev_tools()
 
 func handle_movement_and_jump():
+	if pause:
+		return
 	var direction = Input.get_axis("move_left", "move_right")
 	if direction != 0:
 		last_direction = direction
@@ -49,7 +52,7 @@ func handle_movement_and_jump():
 	velocity.x = direction * speed
 
 	# Handle jump logic
-	if Input.is_action_just_pressed("jump") and !dead and !on_sign:
+	if Input.is_action_just_pressed("jump") and !dead:
 		if is_on_floor() or !cayote_timer.is_stopped(): # Coyote jump allowed
 			velocity.y = JUMP_VELOCITY
 			cayote_timer.stop()  # Disable coyote jump once used
@@ -73,10 +76,14 @@ func handle_animation():
 		update_animation(animation_name)
 
 func update_animation(animation_name):
+	if pause:
+		return
 	if animated_sprite.animation != animation_name:
 		animated_sprite.play(animation_name)
 
 func handle_attack():
+	if pause:
+		return
 	# Position and rotation of Marker2D based on last direction
 	marker.position.x = 10 if last_direction > 0 else -10
 	marker.rotation = deg_to_rad(0) if last_direction > 0 else deg_to_rad(180)

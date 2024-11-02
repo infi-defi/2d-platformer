@@ -1,9 +1,11 @@
-[gd_scene load_steps=22 format=3 uid="uid://cr102txdg8hvt"]
+[gd_scene load_steps=24 format=3 uid="uid://cr102txdg8hvt"]
 
 [ext_resource type="PackedScene" uid="uid://cmhux5uhvfbm4" path="res://scenes/player.tscn" id="1_24cd3"]
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_e6xho"]
 [ext_resource type="PackedScene" uid="uid://dovejb5kggdi0" path="res://scenes/platform.tscn" id="2_682m0"]
 [ext_resource type="Texture2D" uid="uid://c8hmccnq25asm" path="res://assets/sprites/world_tileset.png" id="2_xwj7g"]
 [ext_resource type="PackedScene" uid="uid://cd3yxew0f2jm3" path="res://scenes/coin.tscn" id="4_2ay6v"]
+[ext_resource type="PackedScene" uid="uid://besf4pwrx1ity" path="res://scenes/pause_menu.tscn" id="4_c8c80"]
 [ext_resource type="PackedScene" uid="uid://6vjmimc7i356" path="res://scenes/killzone.tscn" id="5_mkcj2"]
 [ext_resource type="PackedScene" uid="uid://cwtlh8a4oucvp" path="res://scenes/slime.tscn" id="7_2bdib"]
 [ext_resource type="FontFile" uid="uid://ba5p3i381qvj1" path="res://assets/fonts/PixelOperator8.ttf" id="7_sad4y"]
@@ -258,6 +260,7 @@ _data = {
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_tqeii"]
 
 [node name="game" type="Node2D"]
+script = ExtResource("1_e6xho")
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(12, 3)
@@ -275,6 +278,13 @@ position = Vector2(-94.0926, -115.648)
 zoom = Vector2(4, 4)
 limit_bottom = 145
 limit_smoothed = true
+
+[node name="PauseMenu" parent="player/Camera2D2" instance=ExtResource("4_c8c80")]
+visible = false
+offset_left = -52.0
+offset_top = -30.0
+offset_right = -52.0
+offset_bottom = -30.0
 
 [node name="coins" type="Node" parent="."]
 

@@ -1,5 +1,5 @@
 # What dis?
-Platformer esc type of game made in Godot for learning purposes.
+Platformer-esque type of game made in Godot for learning purposes.
 
 # Planned features
 - [x] add death animation

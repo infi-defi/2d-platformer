@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_sawhh"]
 [ext_resource type="Texture2D" uid="uid://i3d5icmugre" path="res://assets/sprites/knight.png" id="1_twc6m"]
 [ext_resource type="PackedScene" uid="uid://c0esxe62k56x8" path="res://scenes/healthbar.tscn" id="4_7ngx2"]
-[ext_resource type="Script" path="res://scripts/wepons.gd" id="4_f2iqk"]
+[ext_resource type="Script" path="res://scripts/weapons.gd" id="4_f2iqk"]
 [ext_resource type="Texture2D" uid="uid://d1oirmyvcq1vx" path="res://assets/sprites/weapons_.png" id="5_mq8nc"]
 [ext_resource type="Texture2D" uid="uid://c48iqs27ie1g0" path="res://assets/sprites/excalibur_.png" id="6_fksmu"]
 
@@ -366,7 +366,7 @@ animation = &"death"
 position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_dv5gx")
 
-[node name="cayoteTimer" type="Timer" parent="."]
+[node name="coyoteTimer" type="Timer" parent="."]
 wait_time = 0.15
 one_shot = true
 

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/goblin.gd" id="1_hr6wd"]
 [ext_resource type="Texture2D" uid="uid://b4me60dh7milv" path="res://assets/sprites/goblin_.png" id="1_yjyfx"]
 [ext_resource type="PackedScene" uid="uid://6vjmimc7i356" path="res://scenes/killzone.tscn" id="2_e735g"]
-[ext_resource type="Script" path="res://scripts/wepons.gd" id="4_cpxat"]
+[ext_resource type="Script" path="res://scripts/weapons.gd" id="4_cpxat"]
 [ext_resource type="Texture2D" uid="uid://d1oirmyvcq1vx" path="res://assets/sprites/weapons_.png" id="5_p7u7o"]
 [ext_resource type="Texture2D" uid="uid://c48iqs27ie1g0" path="res://assets/sprites/excalibur_.png" id="6_wlcpb"]
 [ext_resource type="PackedScene" uid="uid://c0esxe62k56x8" path="res://scenes/healthbar.tscn" id="7_7csia"]

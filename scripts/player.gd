@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@onready var cayote_timer = $cayoteTimer
+@onready var coyote_timer = $coyoteTimer
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var health_bar = $healthBar
 @onready var marker = $Marker2D
@@ -53,9 +53,9 @@ func handle_movement_and_jump():
 
 	# Handle jump logic
 	if Input.is_action_just_pressed("jump") and !dead:
-		if is_on_floor() or !cayote_timer.is_stopped(): # Coyote jump allowed
+		if is_on_floor() or !coyote_timer.is_stopped(): # Coyote jump allowed
 			velocity.y = JUMP_VELOCITY
-			cayote_timer.stop()  # Disable coyote jump once used
+			coyote_timer.stop()  # Disable coyote jump once used
 		elif jumps > 0: # Allow double jump
 			velocity.y = JUMP_VELOCITY
 			jumps -= 1
@@ -63,7 +63,7 @@ func handle_movement_and_jump():
 	# Reset jumps if player is on the floor
 	if is_on_floor():
 		jumps = EXTRA_JUMPS
-		cayote_timer.stop()  # No need for coyote timing when on the floor
+		coyote_timer.stop()  # No need for coyote timing when on the floor
 
 
 func handle_animation():
@@ -126,7 +126,7 @@ func handle_move_and_slide():
 	var was_on_floor = is_on_floor()
 	move_and_slide()
 	if was_on_floor and !is_on_floor():
-		cayote_timer.start()
+		coyote_timer.start()
 
 func handle_dev_tools():
 	# Developer tool shortcuts
